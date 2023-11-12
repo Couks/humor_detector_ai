@@ -7,23 +7,24 @@ export async function InputImage() {
   const [selectedFile, setSelectedFile] = useState();
   const [imagePreview, setImagePreview] = useState();
 
-  const handleImageUpload = (event) => {
-    setSelectedFile(event.target.files[0]);
+//   const handleImageUpload = (event) => {
+//     setSelectedFile(event.target.files[0]);
 
-    let reader = new FileReader();
-    reader.readAsDataURL(event.target.files[0]);
-    reader.onloadend = () => {
-      setImagePreview(reader.result);
-    };
-  };
+//     let reader = new FileReader();
+//     reader.readAsDataURL(event.target.files[0]);
+//     reader.onloadend = () => {
+//       setImagePreview(reader.result);
+//     };
+//   };
 
-  const removeImage = () => {
-    setSelectedFile(null);
-    setImagePreview(null);
-  };
+//   const removeImage = () => {
+//     setSelectedFile(null);
+//     setImagePreview(null);
+//   };
   
   return (
     <>
+    <h1>Input Image</h1>
       {/* {imagePreview && (
             <div className="relative w-auto h-1/2 mb-4">
               <Image
