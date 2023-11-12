@@ -1,9 +1,5 @@
-import { resolve } from "path";
 import { Suspense } from "react";
 import Header from "../components/header";
-
-
-await new Promise(resolve) => setTimeout(resolve, 20000)
 
 export interface humorData {
   id: number;
