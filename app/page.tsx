@@ -1,5 +1,3 @@
-"use client";
-
 import Header from "./components/header";
 import { InputImage } from "./components/inputimage";
 

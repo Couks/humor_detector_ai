@@ -16,12 +16,12 @@ export function Card({
   headwear,
 }: CardProps) {
   return (
-    <div className="flex items-center w-1/2 h-auto bg-white rounded-lg shadow-lg m-4 p-4">
-      <div className="w-2/3 h-auto p-4">
-        <img src={photoURL} alt={photoURL} className="w-full h-full rounded-lg" />
+    <div className="flex items-center justify-center w-1/2 h-auto bg-white rounded-lg shadow-lg m-4 p-2 hover:bg-zinc-100 hover:shadow-xl">
+      <div className="w-1/2 h-auto p-4">
+        <img src={photoURL} alt={photoURL} className="w-full h-auto rounded-lg"/>
       </div>
 
-      <div className="flex flex-col h-full justify-around align-center text-purple-700 mt-4 w-1/3">
+      <div className="w-1/2 flex flex-col h-auto justify-between align-center text-purple-700 py-10 px-4">
         <div>
           <p className="font-bold text-lg">Felicidade</p>
           <div className="w-full h-2 bg-gray-200 rounded-full">
