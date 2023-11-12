@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { Card } from "../components/card";
 import Header from "../components/header";
 
 export interface humorData {
@@ -12,6 +12,8 @@ export interface humorData {
 }
 
 export default async function Catalogo() {
+  
+
   const response = await fetch("https://facehumor.onrender.com/faces", {
     cache: "force-cache",
   });
@@ -19,13 +21,20 @@ export default async function Catalogo() {
   const catalogo = await response.json();
 
   return (
-    <main className="flex flex-col w-screen h-screen items-center bg-zinc-100">
-      <Header />
-      <h1>Catálogo de Imagens</h1>
-      <div className="container">
-        <Suspense fallback={<p>Carregando Imagens</p>}>
-        <pre>{JSON.stringify(catalogo, null, 2)}</pre>
-        </Suspense>
+    <main className="flex flex-col w-screen h-full items-center bg-zinc-100">
+      <Header MetadataProps={{ title: 'Catálogo de Imagens' }}/>
+      <div className="container flex p-12">
+        {catalogo.map((item) => (
+            <Card
+              key={item.id}
+              photoURL={item.photoURL}
+              joy={item.joy}
+              anger={item.anger}
+              surprise={item.surprise}
+              sorrow={item.sorrow}
+              headwear={item.headwear}
+            />
+        ))}
       </div>
     </main>
   );
