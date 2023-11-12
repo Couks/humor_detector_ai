@@ -1,11 +1,10 @@
-'use client';
 
-import { useState } from "react";
+
 
 
 export async function InputImage() {
-  const [selectedFile, setSelectedFile] = useState();
-  const [imagePreview, setImagePreview] = useState();
+//   const [selectedFile, setSelectedFile] = useState();
+//   const [imagePreview, setImagePreview] = useState();
 
 //   const handleImageUpload = (event) => {
 //     setSelectedFile(event.target.files[0]);
