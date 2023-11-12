@@ -12,7 +12,6 @@ export interface humorData {
 }
 
 export default async function Catalogo() {
-  
 
   const response = await fetch("https://facehumor.onrender.com/faces", {
     cache: "force-cache",
@@ -24,7 +23,7 @@ export default async function Catalogo() {
     <main className="flex flex-col w-screen h-full items-center bg-zinc-100">
       <Header MetadataProps={{ title: 'Catálogo de Imagens' }}/>
       <div className="container flex p-12">
-        {catalogo.map((item) => (
+        {catalogo.map((item: humorData) => (
             <Card
               key={item.id}
               photoURL={item.photoURL}
