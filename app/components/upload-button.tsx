@@ -1,5 +1,4 @@
 export async function UploadButton() {
-    
   const formData = new FormData();
   formData.append("image", fileInput.files[0]);
 

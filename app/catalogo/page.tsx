@@ -1,5 +1,4 @@
 import { Card } from "../components/card";
-import Header from "../components/header";
 
 export interface humorData {
   id: number;
@@ -20,9 +19,8 @@ export default async function Catalogo() {
   const catalogo = await response.json();
 
   return (
-    <main className="flex flex-col w-screen h-full items-center bg-purple-100 ">
-      <Header MetadataProps={{ title: 'Catálogo de Imagens' }}/>
-      <div className="container p-8">
+    <main className="bg-purple-100">
+      <div className="flex flex-col-reverse md:flex md:flex-col-reverse justify-center px-2">
         {catalogo.map((item: humorData) => (
             <Card
               key={item.id}
