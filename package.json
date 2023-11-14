@@ -13,23 +13,21 @@
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.14.16",
     "@mui/material": "^5.14.17",
-    "@tanstack/react-query": "^5.8.2",
     "axios": "^1.6.1",
     "next": "14.0.2",
-    "react": "^18",
-    "react-dom": "^18",
-    "react-progressbar.js": "^0.2.0",
-    "react-query": "^3.39.3"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-progressbar.js": "^0.2.0"
   },
   "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "autoprefixer": "^10.0.1",
-    "eslint": "^8",
+    "@types/node": "^20.9.0",
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "^18.2.15",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.53.0",
     "eslint-config-next": "14.0.2",
-    "postcss": "^8",
-    "tailwindcss": "^3.3.0",
-    "typescript": "^5"
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.5",
+    "typescript": "^5.2.2"
   }
 }
