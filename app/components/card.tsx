@@ -46,6 +46,42 @@ export function Card({
           </div>
         ))}
       </div>
+      <div className="hidden">
+        <div>
+          <p className="font-bold text-lg">Felicidade</p>
+          <div className="w-full h-2 bg-gray-200 rounded-full">
+            {joy && <div className="h-2 bg-green-500 rounded-full"></div>}
+          </div>
+        </div>
+
+        <div>
+          <p className="font-bold text-lg">Raiva</p>
+          <div className="w-full h-2 bg-gray-200 rounded-full">
+            {anger && <div className="h-2 bg-red-500 rounded-full"></div>}
+          </div>
+        </div>
+
+        <div>
+          <p className="font-bold text-lg">Surpresa</p>
+          <div className="w-full h-2 bg-gray-200 rounded-full">
+            {surprise && <div className="h-2 bg-yellow-500 rounded-full"></div>}
+          </div>
+        </div>
+
+        <div>
+          <p className="font-bold text-lg">Tristeza</p>
+          <div className="w-full h-2 bg-gray-200 rounded-full">
+            {sorrow && <div className="h-2 bg-blue-500 rounded-full"></div>}
+          </div>
+        </div>
+
+        <div>
+          <p className="font-bold text-lg">Usa chapéu</p>
+          <div className="w-full h-2 bg-gray-200 rounded-full">
+            {headwear && <div className="h-2 bg-purple-500 rounded-full"></div>}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

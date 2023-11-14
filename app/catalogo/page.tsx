@@ -1,4 +1,5 @@
 import { Card } from "../components/card";
+import Header from "../components/header";
 
 interface humorData {
   id: number;
@@ -28,24 +29,27 @@ export default async function Catalogo() {
   console.log(catalogo);
 
   return (
-    <main className="flex bg-purple-100 p-8 justify-center">
-      <div className="flex flex-col gap-8 / sm:grid sm:grid-cols-2 lg:grid lg:grid-cols-3">
-        {catalogo.reverse().map((item: humorData) => (
-          <Card
-            key={item.id}
-            image={
-              item.photoURL ||
-              (item.faceImg &&
-                `data:${item.faceImg.type};base64,${item.faceImg.face_img_data}`)
-            }
-            joy={item.joy}
-            anger={item.anger}
-            surprise={item.surprise}
-            sorrow={item.sorrow}
-            headwear={item.headwear}
-          />
-        ))}
-      </div>
-    </main>
+    <>
+      <Header title="Catálogo de Imagens"></Header>
+      <main className="flex bg-purple-100 p-8 justify-center">
+        <div className="flex flex-col gap-8 / sm:grid sm:grid-cols-2 lg:grid lg:grid-cols-3">
+          {catalogo.reverse().map((item: humorData) => (
+            <Card
+              key={item.id}
+              image={
+                item.photoURL ||
+                (item.faceImg &&
+                  `data:${item.faceImg.type};base64,${item.faceImg.face_img_data}`)
+              }
+              joy={item.joy}
+              anger={item.anger}
+              surprise={item.surprise}
+              sorrow={item.sorrow}
+              headwear={item.headwear}
+            />
+          ))}
+        </div>
+      </main>
+    </>
   );
 }
