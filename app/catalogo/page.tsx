@@ -32,7 +32,8 @@ export default async function Catalogo() {
               image={
                 item.photoURL ||
                 (item.faceImg &&
-                  `data:${item.faceImg.type};base64,${item.faceImg.face_img_data}`)
+                  `data:${item.faceImg.type};base64,${item.faceImg.face_img_data}`) ||
+                ""
               }
               joy={item.joy}
               anger={item.anger}

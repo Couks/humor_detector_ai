@@ -8,17 +8,21 @@ import axios from "axios";
 import { useState } from "react";
 
 export function InputImage() {
-  const [selectedFile, setSelectedFile] = useState();
-  const [imagePreview, setImagePreview] = useState(null);
-  const [uploadStatus, setUploadStatus] = useState(null);
+  const [selectedFile, setSelectedFile] = useState<File | undefined | null>();
+  const [imagePreview, setImagePreview] = useState<string | null>(null);
+  const [uploadStatus, setUploadStatus] = useState<string | undefined>();
 
-  const handleImageUpload = (event) => {
-    const file = event.target.files[0];
+  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!e.target.files || e.target.files.length === 0) {
+      return;
+    }
+
+    const file = e.target.files[0];
     setSelectedFile(file);
 
     const reader = new FileReader();
     reader.onloadend = () => {
-      setImagePreview(reader.result);
+      setImagePreview(reader.result as string);
     };
     reader.readAsDataURL(file);
   };
@@ -26,24 +30,27 @@ export function InputImage() {
   const handleUpload = async () => {
     try {
       const formData = new FormData();
-      formData.append("file", selectedFile);
+      if (selectedFile) {
+        formData.append("file", selectedFile);
+      }
+      
 
       const response = await axios
         .post("https://facehumor.onrender.com/faces/img", formData, {
           headers: {
             "Content-Type": "multipart/form-data",
-            "Allow": "*",
-            "Accept": "*/*",
+            Allow: "*",
+            Accept: "*/*",
             "Access-Control-Allow-Origin": "*",
           },
         })
         .then((response) => {
           console.log(response);
-          setUploadStatus("Imagem enviada com sucesso!");
+          setUploadStatus("Arquivo Enviado com Sucesso.");
         });
     } catch (error) {
-      console.error("A network problem occurred", error);
-      setUploadStatus("Falha ao enviar a imagem.");
+      console.log("A network problem occurred", error);
+      setUploadStatus("Ocorreu um erro no envio do arquivo.");
     }
   };
 
@@ -54,7 +61,7 @@ export function InputImage() {
 
   return (
     <div className="flex flex-col w-auto items-center mx-2 md:w-1/2 mt-2">
-      {uploadStatus && <div>{uploadStatus}</div>}
+      {uploadStatus && (<p className="bg-red-500 px-2 text-white rounded-lg m-2">{uploadStatus}</p>)}
       {imagePreview ? (
         <div className="w-full h-auto p-2 bg-gray-100 border-dashed border-purple-500 border-2 rounded-lg items-center mx-4 text-center cursor-pointer">
           <img
@@ -86,12 +93,10 @@ export function InputImage() {
           />
           <Button
             onClick={handleUpload}
-            className="w-full text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 focus:outline-none rounded-lg p-6"
+            className="w-full text-white font-mono font-bold bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 focus:outline-none rounded-lg p-6"
           >
             <CloudUploadIcon fontSize="small" />
-            <span className=" text-center ml-2 font-mono font-bold">
-              Enviar Imagem
-            </span>
+            <span className="text-center ml-2 ">Enviar Imagem</span>
           </Button>
         </>
       )}
