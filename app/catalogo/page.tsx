@@ -1,3 +1,4 @@
+import axios from "axios";
 import { Card } from "../components/card";
 import Header from "../components/header";
 
@@ -17,39 +18,29 @@ interface humorData {
 }
 
 export default async function Catalogo() {
-  const response = await fetch("https://facehumor.onrender.com/faces", {
-    cache: "no-cache",
-    next: {
-      revalidate: 30,
-    },
-  });
-
-  const catalogo = await response.json();
-
-
-  console.log(catalogo);
+  const response = await axios.get("https://facehumor.onrender.com/faces");
+  const catalogo = await response.data;
 
   return (
     <>
-      <Header title="Catálogo de Imagens"></Header>
-      <main className="flex bg-purple-100 p-8 justify-center">
-        <div className="flex flex-col gap-8 sm:grid sm:grid-cols-2 lg:grid lg:grid-cols-3">
-          
-            {catalogo.reverse().map((item: humorData) => (
-              <Card
-                key={item.id}
-                image={
-                  item.photoURL ||
-                  (item.faceImg &&
-                    `data:${item.faceImg.type};base64,${item.faceImg.face_img_data}`)
-                }
-                joy={item.joy}
-                anger={item.anger}
-                surprise={item.surprise}
-                sorrow={item.sorrow}
-                headwear={item.headwear}
-              />
-            ))}
+      <main className="bg-purple-100 w-screen h-auto">
+        <Header title="Catálogo de Imagens" />
+        <div className="flex flex-col gap-4 mx-2 my-8 / sm:grid sm:grid-cols-2 2xl:grid 2xl:grid-cols-3">
+          {catalogo.reverse().map((item: humorData) => (
+            <Card
+              key={item.id}
+              image={
+                item.photoURL ||
+                (item.faceImg &&
+                  `data:${item.faceImg.type};base64,${item.faceImg.face_img_data}`)
+              }
+              joy={item.joy}
+              anger={item.anger}
+              surprise={item.surprise}
+              sorrow={item.sorrow}
+              headwear={item.headwear}
+            />
+          ))}
         </div>
       </main>
     </>

@@ -19,8 +19,8 @@ export function Card({
   headwear,
 }: CardProps) {
   return (
-    <div className="flex flex-col sm:grid sm:grid-cols-3 gap-1 justify-center h-50 bg-white rounded-lg shadow-lg mx-1 p-1 hover:bg-zinc-50 hover:shadow-xl hover:transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-105">
-      <div className="w-full sm:col-span-2 h-auto p-4">
+    <div className="flex flex-col sm:grid sm:grid-cols-5 gap-1 justify-center items-center h-50 bg-white rounded-lg shadow-lg mx-1 p-4 hover:bg-zinc-50 hover:shadow-xl hover:transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-100 border-purple-400 border-double border-4">
+      <div className="w-full sm:col-span-3 h-auto">
         <img
           src={image}
           alt={image}
@@ -28,7 +28,7 @@ export function Card({
         />
       </div>
 
-      <div className="w-full sm:col-span-1 h-auto text-purple-700 p-2 bg-white rounded-lg">
+      <div className="w-full sm:col-span-2 h-fit text-purple-700 rounded-lg">
         {[
           { label: "Felicidade", value: joy, color: "green" },
           { label: "Raiva", value: anger, color: "red" },
@@ -46,7 +46,42 @@ export function Card({
           </div>
         ))}
       </div>
-      
+      <div className="hidden">
+        <div>
+          <p className="font-bold text-lg">Felicidade</p>
+          <div className="w-full h-2 bg-gray-200 rounded-full">
+            {joy && <div className="h-2 bg-green-500 rounded-full"></div>}
+          </div>
+        </div>
+
+        <div>
+          <p className="font-bold text-lg">Raiva</p>
+          <div className="w-full h-2 bg-gray-200 rounded-full">
+            {anger && <div className="h-2 bg-red-500 rounded-full"></div>}
+          </div>
+        </div>
+
+        <div>
+          <p className="font-bold text-lg">Surpresa</p>
+          <div className="w-full h-2 bg-gray-200 rounded-full">
+            {surprise && <div className="h-2 bg-yellow-500 rounded-full"></div>}
+          </div>
+        </div>
+
+        <div>
+          <p className="font-bold text-lg">Tristeza</p>
+          <div className="w-full h-2 bg-gray-200 rounded-full">
+            {sorrow && <div className="h-2 bg-blue-500 rounded-full"></div>}
+          </div>
+        </div>
+
+        <div>
+          <p className="font-bold text-lg">Usa chapéu</p>
+          <div className="w-full h-2 bg-gray-200 rounded-full">
+            {headwear && <div className="h-2 bg-purple-500 rounded-full"></div>}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

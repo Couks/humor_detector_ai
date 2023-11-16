@@ -4,9 +4,11 @@ import { InputImage } from "./components/inputimage";
 export default function Home() {
   return (
     <>
-      <Header title="Home" />
-      <main className="bg-zinc-100 w-screen h-screen py-8">
-        <InputImage />
+      <main className="bg-purple-100 w-screen h-screen">
+        <Header title="Home" />
+        <div className="flex flex-col md:items-center">
+          <InputImage />
+        </div>
       </main>
     </>
   );
