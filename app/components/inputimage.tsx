@@ -3,6 +3,7 @@
 
 import axios from "axios";
 
+import Link from "next/link";
 import { useState } from "react";
 import { Button } from "./button";
 
@@ -90,7 +91,9 @@ export function InputImage() {
                   <p>Processando Imagem... </p>
                 </Button>
               ) : success ? (
-                <Button success={true} />
+                <Link href="/catalogo">
+                  <Button success={true}>Ver resultado</Button>
+                </Link>
               ) : uploadStatus ? (
                 <Button error={true} size={"lg"}>
                   {uploadStatus}
@@ -115,7 +118,12 @@ export function InputImage() {
               <p>Processando Imagem... </p>
             </Button>
           ) : success ? (
-            <Button success={true} />
+            <Link href="/catalogo">
+              <Button success={true} >
+                Ver resultado
+              </Button>
+            </Link>
+
           ) : uploadStatus ? (
             <Button error={true} size={"lg"}>
               {uploadStatus}

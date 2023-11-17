@@ -22,7 +22,7 @@ export default function Header({ title }: MetadataProps) {
       <Link href="/catalogo">
         <Button>
           <p className="hidden sm:block pr-1 font-bold mr-2">Catálogo</p>
-          <List size={32} strokeWidth={3} className=""/>
+          <List size={24} strokeWidth={3} className=""/>
         </Button>
       </Link>  
     </header>

@@ -19,7 +19,7 @@ export function Card({
   headwear,
 }: CardProps) {
   return (
-    <div className="flex flex-col justify-center items-center mb-2  h-50 sm:grid sm:grid-cols-5 gap-2  bg-white rounded-lg shadow-lg mx-1 p-4 hover:bg-zinc-50 hover:shadow-xl hover:transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-104 border-purple-400 border-double border-4">
+    <div className="flex flex-col justify-center items-center mb-2  h-50 sm:grid sm:grid-cols-5 gap-2 bg-white rounded-lg shadow-lg mx-1 p-4 hover:bg-zinc-50 hover:shadow-xl hover:transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-104 border-purple-400 border-double border-4">
       <div className="w-full sm:col-span-3 h-auto">
         <img
           src={image}

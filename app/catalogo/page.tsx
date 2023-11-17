@@ -29,7 +29,7 @@ export default function Catalogo() {
   const fetchCatalogo = async () => {
     try {
       const response = await axios.get("https://facehumor.onrender.com/faces");
-      setCatalogo(response.data.reverse());
+      setCatalogo(response.data);
     } catch (error) {
       console.error("Erro ao buscar o catálogo", error);
     }
@@ -55,6 +55,7 @@ export default function Catalogo() {
     } catch (error) {
       console.error("Erro ao deletar a imagem", error);
     }
+    
     setLoading(null);
   };
   
@@ -63,7 +64,7 @@ export default function Catalogo() {
     <main className="bg-purple-100 w-screen h-auto ">
       <Header title="Catálogo de Imagens" />
       <div className="flex flex-col gap-8 m-6 pb-8 items-center/ sm:grid sm:grid-cols-2 2xl:grid 2xl:grid-cols-3">
-        {catalogo.map((item: humorData) => (
+        {catalogo.reverse().map((item: humorData) => (
           <div key={item.id} className="items-center">
             <Card
             key={item.id}

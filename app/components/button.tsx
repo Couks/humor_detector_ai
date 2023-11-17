@@ -10,19 +10,19 @@ const button = tv({
       true: "bg-purple-500 hover:bg-purple-700 focus:ring-4 focus:ring-purple-400",
     },
     success: {
-      true: "bg-emerald-600 hover:bg-emerald-800 focus:ring-emerald-400 shadow-md ",
+      true: "bg-emerald-500 hover:bg-purple-700  ",
     },
     upload: {
-      true: "bg-emerald-500 hover:bg-emerald-700 focus:ring-emerald-400 shadow-md ",
+      true: "bg-emerald-500 hover:bg-emerald-700 ",
     },
     error: {
-      true: "bg-orange-500 hover:bg-orange-700 focus:ring-orange-400 shadow-md ",
+      true: "bg-orange-500 hover:bg-orange-700  ",
     },
     remove: {
-      true: "bg-red-500 hover:bg-red-700 focus:ring-red-400 shadow-md ",
+      true: "bg-red-500 hover:bg-red-700 ",
     },
     loading: {
-      true: "bg-zinc-500 hover:bg-zinc-700 focus:ring-zinc-400 shadow-md ",
+      true: "bg-green-500 hover:bg-green-500",
     },
     size: {
       default: "w-full h-10 px-6 py-2",
@@ -99,7 +99,13 @@ export function Button({
           {props.children}
         </>
       )}
-      {!success && !error && !upload && !remove && !normal && !loading && props.children}
+      {!success &&
+        !error &&
+        !upload &&
+        !remove &&
+        !normal &&
+        !loading &&
+        props.children}
     </button>
   );
 }
