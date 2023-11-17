@@ -6,7 +6,7 @@ export default function Home() {
     <>
       <main className="bg-purple-100 w-screen h-screen">
         <Header title="Home" />
-        <div className="flex flex-col md:items-center">
+        <div className="flex flex-col items-center h-auto">
           <InputImage />
         </div>
       </main>
